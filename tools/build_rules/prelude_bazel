@@ -1,0 +1,1 @@
+load("//tools/build_rules:java_trans.bzl", "java_library","globs")
