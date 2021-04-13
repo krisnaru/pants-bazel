@@ -1,4 +1,4 @@
-package main.java.com.common;
+package com.common;
 
 public class Test {
     public void method() {

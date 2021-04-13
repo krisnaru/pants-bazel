@@ -1,1 +1,3 @@
-load("//tools/build_rules:java_trans.bzl", "java_library","globs")
+load("//tools/build_rules:common.bzl", "globs","jar")
+load("//tools/build_rules:java_library.bzl", "java_library", "jar_library")
+load("//tools/build_rules:scala_library.bzl", "scala_library")
