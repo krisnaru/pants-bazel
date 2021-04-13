@@ -1,7 +1,9 @@
 load(
     "@rules_java//java:defs.bzl",
     java_library_impl = "java_library",
+    "java_import",
 )
+load("@bazel_tools//tools/build_defs/repo:maven_rules.bzl", "maven_jar")
 
 def java_library(**kwargs):
     sources = kwargs.get('srcs')
@@ -43,5 +45,6 @@ def jar_library(name, jars):
   result = []
   for jar in jars:
     result.append("@maven//:" + jar.replace(".","_").replace(":","_").replace("-","_"))
-  print(result)
-  return result.pop()
+  # print(result)
+
+  java_import(name = name,jars = result)
