@@ -1,14 +1,7 @@
 java_library(name='common-lib',
              dependencies=[
-               #'3rdparty/java/org/snappy:snappy',
-               #'3rdparty/java/org/log4j2:log4j',
-               # "@maven//:junit_junit",
-               # "@maven//:org_hamcrest_hamcrest_library",
-               # "@maven//:org_apache_logging_log4j_log4j_core",
-               # "@maven//:org_apache_logging_log4j_log4j_api",
-               # "@maven//:com_lmax_disruptor",
-               "@maven//:org_xerial_snappy_snappy_java",
-               "@maven//:log4j_log4j",
+               '3rdparty/java/org/snappy:snappy',
+               '3rdparty/java/org/log4j2:log4j',
              ],
              sources=globs('*.java')
              )
