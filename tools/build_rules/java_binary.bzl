@@ -1,11 +1,9 @@
 load(
     "@rules_java//java:defs.bzl",
-    java_library_impl = "java_library",
-    "java_import",
+    java_binary_impl = "java_binary",
 )
-load("@bazel_tools//tools/build_defs/repo:maven_rules.bzl", "maven_jar")
 
-def java_library(**kwargs):
+def java_binary(**kwargs):
     sources = kwargs.get('srcs')
     if kwargs.get('sources'):
       sources = kwargs.get('sources')
@@ -16,7 +14,7 @@ def java_library(**kwargs):
     kwargs.pop('dependencies')
 
     
-    java_library_impl(
+    java_binary_impl(
         srcs = sources,
         deps = dependencies,
         visibility = ["//visibility:public"],
@@ -43,12 +41,12 @@ def process_deps(dependencies):
 #       "jars": attr.string_list(),
 #   },
 # )
-def jar_library(name, jars):
-  deps = []
-  for jar in jars:
-    deps.append("@maven//:" + jar.replace(".","_").replace(":","_").replace("-","_"))
-  print(deps)
-  #Traceback.print_stack()
-  # return depset(result)
-  #return result.pop()
-  java_import(name=name, deps=deps, jars=[], visibility=["//visibility:public"])
+# def jar_library(name, jars):
+#   deps = []
+#   for jar in jars:
+#     deps.append("@maven//:" + jar.replace(".","_").replace(":","_").replace("-","_"))
+#   print(deps)
+#   #Traceback.print_stack()
+#   # return depset(result)
+#   #return result.pop()
+#   java_import(name=name, deps=deps, jars=[], visibility=["//visibility:public"])

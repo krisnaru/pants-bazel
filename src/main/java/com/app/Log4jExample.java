@@ -1,5 +1,6 @@
-package com.common;
+package com.common.app;
 
+import com.common.SnappyHelper;
 import org.apache.log4j.Logger;
 
 import java.io.*;
@@ -14,5 +15,6 @@ public class Log4jExample{
    public static void main(String[] args)throws IOException,SQLException{
       log.debug("Hello this is a debug message");
       log.info("Hello this is an info message");
+      log.info(SnappyHelper.compressed("test"));
    }
 }
