@@ -13,7 +13,6 @@ def java_binary(**kwargs):
     kwargs.pop('sources')
     kwargs.pop('dependencies')
 
-    
     java_binary_impl(
         srcs = sources,
         deps = dependencies,
@@ -22,31 +21,4 @@ def java_binary(**kwargs):
     )
 
 def process_deps(dependencies):
-  return [d if d.startswith("@maven") else "//"+d for d in dependencies]
-
-# ResultInfo = provider("res")
-# def _jar_library(ctx):
-#   print(ctx)
-#   print("analyzing", ctx.attr.jars)
-#   # return ResultInfo(res=ctx.attr.jars)
-#   result = []
-#   for jar in ctx.attr.jars:
-#     result.append("@maven//:" + jar.replace(".","_").replace(":","_").replace("-","_"))
-#   print(result)
-#   return ResultInfo(res=result)
-
-# jar_library = rule(
-#   implementation = _jar_library,
-#   attrs = {
-#       "jars": attr.string_list(),
-#   },
-# )
-# def jar_library(name, jars):
-#   deps = []
-#   for jar in jars:
-#     deps.append("@maven//:" + jar.replace(".","_").replace(":","_").replace("-","_"))
-#   print(deps)
-#   #Traceback.print_stack()
-#   # return depset(result)
-#   #return result.pop()
-#   java_import(name=name, deps=deps, jars=[], visibility=["//visibility:public"])
+  return ["//"+d for d in dependencies]
