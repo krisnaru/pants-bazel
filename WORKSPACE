@@ -46,36 +46,15 @@ load("@io_bazel_rules_scala//testing:scalatest.bzl", "scalatest_repositories", "
 scalatest_repositories()
 scalatest_toolchain()
 
-# RULES_JVM_EXTERNAL_TAG = "4.0"
-# RULES_JVM_EXTERNAL_SHA = "31701ad93dbfe544d597dbe62c9a1fdd76d81d8a9150c2bf1ecf928ecdf97169"
+RULES_JVM_EXTERNAL_TAG = "4.0"
+RULES_JVM_EXTERNAL_SHA = "31701ad93dbfe544d597dbe62c9a1fdd76d81d8a9150c2bf1ecf928ecdf97169"
 
-# http_archive(
-#     name = "rules_jvm_external",
-#     strip_prefix = "rules_jvm_external-%s" % RULES_JVM_EXTERNAL_TAG,
-#     sha256 = RULES_JVM_EXTERNAL_SHA,
-#     url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % RULES_JVM_EXTERNAL_TAG,
-# )
+http_archive(
+    name = "rules_jvm_external",
+    strip_prefix = "rules_jvm_external-%s" % RULES_JVM_EXTERNAL_TAG,
+    sha256 = RULES_JVM_EXTERNAL_SHA,
+    url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % RULES_JVM_EXTERNAL_TAG,
+)
 
-# load("@rules_jvm_external//:defs.bzl", "maven_install")
-
-# maven_install(
-#     artifacts = [
-#         "com.google.guava:guava:15.0",
-#         "org.xerial.snappy:snappy-java:1.1.4",
-#         "junit:junit:4.12",
-#         "log4j:log4j:1.2.17",
-#         "org.apache.logging.log4j:log4j-core:2.5",
-#         "org.apache.logging.log4j:log4j-api:2.5",
-#         # "androidx.test.espresso:espresso-core:3.1.1",
-#         # "org.hamcrest:hamcrest-library:1.3",
-#         "com.lmax:disruptor:3.3.0",
-#     ],
-#     repositories = [
-#         # Private repositories are supported through HTTP Basic auth
-#         # "http://username:password@localhost:8081/artifactory/my-repository",
-#         # "https://maven.google.com",
-#         "https://repo1.maven.org/maven2",
-#     ],
-# )
-load("//:generate_workspace.bzl","maven_dependencies")
-maven_dependencies()
+load("//:generate_workspace.bzl", "load_deps")
+load_deps()

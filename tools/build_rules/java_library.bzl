@@ -13,7 +13,6 @@ def java_library(**kwargs):
       dependencies = process_deps(kwargs.get('dependencies'))
     kwargs.pop('sources')
     kwargs.pop('dependencies')
-
     
     java_library_impl(
         srcs = sources,
@@ -25,9 +24,3 @@ def java_library(**kwargs):
 
 def process_deps(dependencies):
   return [d if d.startswith("@maven") else "//"+d for d in dependencies]
-
-def jar_library(name, jars):
-  deps = []
-  for jar in jars:
-    deps.append("//jvm:" + jar.replace(".","_").replace(":","_").replace("-","_"))
-  java_import(name=name, exports=deps, jars=[], runtime_deps=[], visibility=["//visibility:public"])
