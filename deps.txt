@@ -1,6 +1,0 @@
-org.apache.logging.log4j:log4j-core:2.5
-org.apache.logging.log4j:log4j-api:2.5
-org.apache.logging.log4j:log4j-slf4j-impl:2.5
-com.lmax:disruptor:3.3.0
-log4j:log4j:1.2.17
-org.xerial.snappy:snappy-java:1.1.4
