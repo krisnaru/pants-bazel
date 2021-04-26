@@ -1,13 +1,13 @@
 load(
     "@rules_java//java:defs.bzl",
     java_library_impl = "java_library",
-    "java_import",
 )
 
 def java_library(**kwargs):
     sources = kwargs.get('srcs')
     if kwargs.get('sources'):
       sources = kwargs.get('sources')
+      
     dependencies = kwargs.get('deps')
     if kwargs.get('dependencies'):
       dependencies = process_deps(kwargs.get('dependencies'))
