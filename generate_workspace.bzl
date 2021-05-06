@@ -14,6 +14,7 @@ def load_deps():
             "org.openjdk.jmh:jmh-core:1.21",
             "org.xerial.snappy:snappy-java:1.1.4",
             "org.coursera:dropwizard-metrics-datadog:1.1.13",
+            "org.projectlombok:lombok:1.16.16",
         ],
         repositories = [
             # Private repositories are supported through HTTP Basic auth

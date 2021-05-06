@@ -1,0 +1,7 @@
+java_plugin(
+    name = "lombok_java",
+    processor_class = "lombok.launch.AnnotationProcessorHider$AnnotationProcessor",
+    generates_api = True,
+    deps = ["@maven//:org_projectlombok_lombok",],
+    visibility = ["//visibility:public"],
+)
